@@ -68,9 +68,9 @@ footer {
     max-width: 100%;
 }
 
-p.item-title {
+.item-title {
     display: -webkit-box;
-    -webkit-box-oritent: vertical;
+    -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden;
 }

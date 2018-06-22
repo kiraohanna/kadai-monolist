@@ -21,7 +21,7 @@ class ItemsController extends Controller
             
             $rws_response = $client->execute('IchibaItemSearch', [
                 'keyword' => $keyword,
-                'imageflag' => 1,
+                'imageFlag' => 1,
                 'hits' => 20,
             ]);
             
@@ -45,10 +45,12 @@ class ItemsController extends Controller
     {
         $item = Item::find($id);
         $want_users = $item->want_users;
+        $have_users = $item->have_users;
         
         return view('items.show', [
             'item' => $item,
             'want_users' => $want_users,
+            'have_users' => $have_users,
         ]);
     }
 }
