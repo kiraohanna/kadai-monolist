@@ -1,28 +1,28 @@
-@if ($items)
+   @if($items_have)
     <div class="row">
-        @foreach ($items as $key => $item)
+        @foreach ($items_have as $key => $item_have)
             <div class="item">
                 <div class="col-md-3 col-sm-4 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading text-center">
-                            <img src="{{ $item->image_url }}" alt="" class="">
+                            <img src="{{ $item_have->image_url }}" alt="" class="">
                         </div>
                         <div class="panel-body">
-                            @if ($item->id)
-                                <p class="item-title"><a href="{{ route('items.show', $item->id) }}">{{ $item->name }}</a></p>
+                            @if ($item_have->id)
+                                <p class="item-title"><a href="{{ route('items.show', $item_have->id) }}">{{ $item_have->name }}</a></p>
                             @else
-                                <p class="item-title">{{ $item->name }}</p>
+                                <p class="item-title">{{ $item_have->name }}</p>
                             @endif
                             <div class="buttons text-center">
                                 @if (Auth::check())
-                                    @include('items.want_button', ['item' => $item])
-                                    @include('items.have_button', ['item' => $item])
+                                    @include('items.want_button', ['item' => $item_have])
+                                    @include('items.have_button', ['item' => $item_have])
                                 @endif
                             </div>
                         </div>
-                        @if (isset($item->count))
+                        @if (isset($item_have->count))
                             <div class="panel-footer">
-                                <p class="text-center">{{ $key+1 }}位: {{ $item->count }} Wants</p>
+                                <p class="text-center">{{ $key+1 }}位: {{ $item_have->count }} Haves</p>
                             </div>
                         @endif
                     </div>
@@ -30,5 +30,4 @@
             </div>
         @endforeach
     </div>
- 
-@endif
+    @endif
